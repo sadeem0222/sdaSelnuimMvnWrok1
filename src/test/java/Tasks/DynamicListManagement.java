@@ -68,7 +68,7 @@ public class DynamicListManagement {
         taskElements = driver.findElements(By.cssSelector("#container ul li"));
         for (WebElement task : taskElements) {
             if (task.getAttribute("class").contains("completed")) {
-                // hover delete button (x) inside each li
+             //click on delete button "hover"
                 WebElement deleteBtn = task.findElement(By.tagName("span"));
                 deleteBtn.click();
             }
