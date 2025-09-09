@@ -22,7 +22,7 @@ public class FreePractice {
     driver.get("https://demo.guru99.com/test/newtours/register.php");
 
 
-
+//
     //    Apply dropdown and form handling techniques
   WebElement firstName= driver.findElement(By.name("firstName"));
     WebElement lastName= driver.findElement(By.name("lastName"));
