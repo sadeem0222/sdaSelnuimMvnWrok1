@@ -24,21 +24,21 @@ public class RadioButtonTest {
         if (yesb.isEnabled()) {
             js.executeScript("arguments[0].click();", yesb);
             Assertions.assertTrue(yesb.isSelected(), "Yes should be selected");
-            System.out.println("✅ Yes option successfully selected!");
+            System.out.println(" Yes option successfully selected!");
         }
 
         if (imprb.isEnabled()) {
             js.executeScript("arguments[0].click();", imprb);
             Assertions.assertTrue(imprb.isSelected(), "Impressive should be selected");
-            System.out.println("✅ Impressive option successfully selected!");
+            System.out.println(" Impressive option successfully selected!");
         }
 
         if (nob.isEnabled()) {
             js.executeScript("arguments[0].click();", nob);
             Assertions.assertTrue(nob.isSelected(), "No should be selected");
-            System.out.println("✅ No option successfully selected!");
+            System.out.println(" No option successfully selected!");
         } else {
-            System.out.println("⚠️ No option is disabled, cannot be selected.");
+            System.out.println("⚠ No option is disabled, cannot be selected.");
         }
 
         driver.quit();

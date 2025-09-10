@@ -1,36 +1,47 @@
 package Tasks;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class CSSPracticeTest {
     WebDriver driver;
 
     @Test
     public void testDynamicElements() {
-        // Navigate to: https://the-internet.herokuapp.com/add_remove_elements/
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
 
-        // TODO: Create method to add 100 elements
         createButtons(100);
-
-        // TODO: Create method to delete specific number of buttons and validate
         deleteButtonsAndValidate(50);
+
+        driver.quit();
     }
 
     public void createButtons(int count) {
-        // TODO: Click "Add Element" button specified number of times
-        // TODO: Use CSS selector to locate button
-
-
+        WebElement addButton = driver.findElement(By.cssSelector("button[onclick='addElement()']"));
+        for(int i = 0; i < count; i++) {
+            addButton.click();
+        }
     }
 
     public void deleteButtonsAndValidate(int deleteCount) {
-        // TODO: Click "Delete" button specified number of times
-        // TODO: Validate correct number of buttons remain
-        // TODO: Use CSS selectors for element location
+        List<WebElement> deleteButtons = driver.findElements(By.cssSelector("button[onclick='deleteElement()']"));
+        int initialCount = deleteButtons.size();
+
+        for(int i = 0; i < deleteCount; i++) {
+            deleteButtons.get(i).click();
+        }
+
+        // Validate remaining buttons
+        List<WebElement> remainingButtons = driver.findElements(By.cssSelector("button[onclick='deleteElement()']"));
+        Assertions.assertEquals(initialCount - deleteCount, remainingButtons.size());
+
+        System.out.println("Successfully deleted " + deleteCount + " buttons. Remaining: " + remainingButtons.size());
     }
 }

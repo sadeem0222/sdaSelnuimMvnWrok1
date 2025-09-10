@@ -52,7 +52,7 @@ public class FreePractice {
     Select select =new Select(country);
     select.selectByValue("ALBANIA");
     submit.click();
-    driver.quit();
+
 
 
 
