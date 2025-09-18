@@ -35,7 +35,7 @@ public class EarningsRankingSystem {
         // sort and print
         for (int i = 1; i <= lastRow; i++) {
             double value = sheet1.getRow(i).getCell(1).getNumericCellValue();
-            int rank = row.indexOf(value) ; // +1 عشان يبدأ من 1
+            int rank = row.indexOf(value) ; //الترتيب الحقيقي بالطباعه
             sheet1.getRow(i).createCell(2).setCellValue(rank);
         }
 
